@@ -1,0 +1,29 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Composer dependencies
+/vendor/
+
+# Local database files
+/database.sqlite
+/database/*.sqlite
+
+# Logs
+/logs/
+*.log
+
+# IDE and editor settings
+/.vscode/
+/.idea/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PHPUnit / tooling caches
+.phpunit.result.cache
+.php-cs-fixer.cache
+coverage/
