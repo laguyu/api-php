@@ -2,7 +2,7 @@
 
 Esta guía detalla el funcionamiento de la API, cómo probar sus endpoints utilizando Postman o Swagger, y cómo aprovechar los principios SOLID de la arquitectura para cambiar de base de datos (SQLite, MySQL, PostgreSQL) de forma sencilla.
 
-## Resumen para reclutadores
+## Resumen
 
 Este proyecto es una API REST construida en PHP nativo aplicando arquitectura en capas y principios SOLID.
 
@@ -10,7 +10,7 @@ Objetivo del proyecto:
 
 - Demostrar diseño backend mantenible sin framework pesado.
 - Aplicar buenas prácticas de seguridad y autenticación.
-- Mostrar despliegue cloud-ready (Vercel) con base de datos administrada en Aiven MySQL.
+- Mostrar despliegue cloud-ready (Vercel) con base de datos administrada en Clever Cloud MySQL.
 
 Características técnicas destacadas:
 
@@ -33,7 +33,7 @@ Características técnicas destacadas:
 
 - Lenguaje: PHP 8.3
 - Persistencia: PDO
-- Bases de datos: MySQL (local/Laragon), SQLite (fallback), MySQL administrado en Aiven (producción)
+- Bases de datos: MySQL (local/Laragon), SQLite (fallback), MySQL administrado en Clever Cloud (producción)
 - Arquitectura: capas `Core`, `Application`, `Domain`, `Infrastructure`
 - Seguridad: API Key + JWT (Bearer), refresh token, rate limiting
 - Documentación API: OpenAPI 3 + Swagger UI
@@ -132,7 +132,7 @@ php -S localhost:8000 router.php
 
 Con esos valores, al arrancar la API se conecta a MySQL y crea `products`, `users` y `auth_sessions` si no existen.
 
-### Despliegue en Vercel con Aiven MySQL
+### Despliegue en Vercel con Clever Cloud MySQL
 
 Este proyecto ya incluye:
 
@@ -158,11 +158,11 @@ Checklist paso a paso (pantalla por pantalla):
 
 ```text
 ACTIVE_DRIVER=mysql
-MYSQL_HOST=<host_aiven>
+MYSQL_HOST=<host_clever_cloud>
 MYSQL_PORT=3306
-MYSQL_DBNAME=<database_aiven>
-MYSQL_USER=<user_aiven>
-MYSQL_PASSWORD=<password_aiven>
+MYSQL_DBNAME=<database_clever_cloud>
+MYSQL_USER=<user_clever_cloud>
+MYSQL_PASSWORD=<password_clever_cloud>
 MYSQL_AUTO_CREATE_DATABASE=0
 MYSQL_INIT_SCHEMA=1
 MYSQL_SEED_DEFAULT_USERS=0
@@ -193,10 +193,10 @@ Rutas mínimas a probar:
 - `/api/auth/login`
 - `/api/products`
 
-Nota sobre Aiven MySQL:
+Nota sobre Clever Cloud MySQL:
 
-- Aiven ofrece instancias MySQL compatibles con el driver `mysql` de PDO.
-- Si tu usuario de Aiven no tiene permisos para crear esquemas, deja `MYSQL_AUTO_CREATE_DATABASE=0` y crea la base previamente desde el panel de Aiven.
+- Clever Cloud ofrece instancias MySQL compatibles con el driver `mysql` de PDO.
+- Si tu usuario de Clever Cloud no tiene permisos para crear esquemas, deja `MYSQL_AUTO_CREATE_DATABASE=0` y crea la base previamente desde el panel de Clever Cloud.
 
 ### Guía para principiantes
 
